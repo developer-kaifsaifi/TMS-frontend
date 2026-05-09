@@ -22,7 +22,7 @@ import {
 } from "react-icons/fi";
 
 const socket = io(
-  "http://localhost:5000"
+  "https://digiflow-chi.vercel.app"
 );
 
 const Dashboard = () => {
@@ -65,7 +65,7 @@ const Dashboard = () => {
 
           const res =
             await axios.get(
-              "http://localhost:5000/api/v1/tokens/active-tokens",
+              "https://digiflow-chi.vercel.app/api/v1/tokens/active-tokens",
               getAuthHeader()
             );
 
@@ -131,7 +131,7 @@ const Dashboard = () => {
 
       try {
         await axios.delete(
-          "http://localhost:5000/api/v1/tokens/reset-queue",
+          "https://digiflow-chi.vercel.app/api/v1/tokens/reset-queue",
           getAuthHeader()
         );
 
@@ -152,7 +152,7 @@ const Dashboard = () => {
 
       try {
         await axios.patch(
-          `http://localhost:5000/api/v1/tokens/serve/${tokens[0]._id}`,
+          `https://digiflow-chi.vercel.app/api/v1/tokens/serve/${tokens[0]._id}`,
           {},
           getAuthHeader()
         );
