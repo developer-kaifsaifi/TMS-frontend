@@ -40,7 +40,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "https://digiflow-chi.vercel.app/api/v1/auth/register",
+        "https://tms-backend-ybex.onrender.com/api/v1/auth/register",
         formData
       );
 

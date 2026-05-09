@@ -22,7 +22,7 @@ import {
 } from "react-icons/fi";
 
 const socket = io(
-  "https://digiflow-chi.vercel.app"
+  "https://tms-backend-ybex.onrender.com"
 );
 
 const Dashboard = () => {
@@ -65,7 +65,7 @@ const Dashboard = () => {
 
           const res =
             await axios.get(
-              "https://digiflow-chi.vercel.app/api/v1/tokens/active-tokens",
+              "https://tms-backend-ybex.onrender.com/api/v1/tokens/active-tokens",
               getAuthHeader()
             );
 
@@ -131,7 +131,7 @@ const Dashboard = () => {
 
       try {
         await axios.delete(
-          "https://digiflow-chi.vercel.app/api/v1/tokens/reset-queue",
+          "https://tms-backend-ybex.onrender.com/api/v1/tokens/reset-queue",
           getAuthHeader()
         );
 
@@ -152,7 +152,7 @@ const Dashboard = () => {
 
       try {
         await axios.patch(
-          `https://digiflow-chi.vercel.app/api/v1/tokens/serve/${tokens[0]._id}`,
+          `https://tms-backend-ybex.onrender.com/api/v1/tokens/serve/${tokens[0]._id}`,
           {},
           getAuthHeader()
         );

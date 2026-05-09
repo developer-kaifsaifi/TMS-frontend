@@ -18,7 +18,7 @@ import {
   FiRefreshCw,
 } from "react-icons/fi";
 
-const socket = io("https://digiflow-chi.vercel.app/");
+const socket = io("https://tms-backend-ybex.onrender.com/");
 
 const TokenStatus = () => {
   const { tokenId } = useParams();
@@ -33,7 +33,7 @@ const TokenStatus = () => {
     async () => {
       try {
         const res = await axios.get(
-          `https://digiflow-chi.vercel.app/api/v1/tokens/status/${tokenId}`
+          `https://tms-backend-ybex.onrender.com/api/v1/tokens/status/${tokenId}`
         );
 
         setData(res.data.token);
