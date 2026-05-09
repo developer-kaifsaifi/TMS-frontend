@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, {
+  useState,
+  useEffect,
+} from "react";
+
 import {
   useParams,
   useNavigate,
 } from "react-router-dom";
 
 import { motion } from "motion/react";
+
 import axios from "axios";
 
 import {
@@ -20,6 +25,20 @@ const ScanPage = () => {
   const [loading, setLoading] =
     useState(false);
 
+  // Prevent duplicate token generation
+  useEffect(() => {
+    const existingToken =
+      localStorage.getItem(
+        `token_${businessId}`
+      );
+
+    if (existingToken) {
+      navigate(
+        `/status/${existingToken}`
+      );
+    }
+  }, [businessId, navigate]);
+
   const handleGetToken = async () => {
     console.log(
       "Requesting token for business:",
@@ -33,13 +52,13 @@ const ScanPage = () => {
         `https://tms-backend-ybex.onrender.com/api/v1/tokens/generate/${businessId}`
       );
 
-      // 1. Console me pura data check karo
+      // Debug Response
       console.log(
         "Backend Response Data:",
         res.data
       );
 
-      // 2. Flexible Check
+      // Flexible token ID extraction
       const finalTokenId =
         res.data.tokenId ||
         res.data.token?._id;
@@ -53,7 +72,13 @@ const ScanPage = () => {
           `/status/${finalTokenId}`
         );
 
-        // 3. Forceful Navigation
+        // Save token locally
+        localStorage.setItem(
+          `token_${businessId}`,
+          finalTokenId
+        );
+
+        // Redirect
         navigate(
           `/status/${finalTokenId}`
         );
