@@ -40,7 +40,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/register",
+        "https://digiflow-chi.vercel.app/api/v1/auth/register",
         formData
       );
 

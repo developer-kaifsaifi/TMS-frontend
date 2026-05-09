@@ -30,7 +30,7 @@ const ScanPage = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/v1/tokens/generate/${businessId}`
+        `https://digiflow-chi.vercel.app/api/v1/tokens/generate/${businessId}`
       );
 
       // 1. Console me pura data check karo

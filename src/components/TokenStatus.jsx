@@ -33,7 +33,7 @@ const TokenStatus = () => {
     async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/v1/tokens/status/${tokenId}`
+          `https://digiflow-chi.vercel.app/api/v1/tokens/status/${tokenId}`
         );
 
         setData(res.data.token);
