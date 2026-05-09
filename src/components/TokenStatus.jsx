@@ -18,7 +18,7 @@ import {
   FiRefreshCw,
 } from "react-icons/fi";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://digiflow-chi.vercel.app/");
 
 const TokenStatus = () => {
   const { tokenId } = useParams();
